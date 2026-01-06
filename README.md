@@ -11,7 +11,7 @@ Developing a psychometric rubric assessing **Sycophancy**, **Truthfulness**, and
 
 ## Key Terminology
 
-*   **Granularity Gap:** The information loss inherent in reducing continuous behavioral signals to binary classifications. Our findings indicate binary safety metrics explain only **29% of behavioral variance** ($R^2=0.29$), leaving 71% of sycophantic behavior—particularly "hedged confirmation"—undetected.
+*   **Granularity Gap:** The information loss inherent in reducing continuous behavioral signals to binary classifications. Our findings indicate binary safety metrics explain only **29% of behavioral variance** ($R^2=0.29$), leaving 71% of sycophantic behavior, particularly "hedged confirmation"—undetected.
 *   **Alignment Tax:** The observed trade-off between social compliance and epistemic reliability. We document a strong positive correlation between sycophancy and hallucination ($\rho=0.40$), quantifying the epistemic cost of model agreeableness. This tax has **nearly doubled** from Gen 2.0 ($\rho=0.30$) to Gen 3.0 ($\rho=0.50$).
 
 ## Repository Structure
