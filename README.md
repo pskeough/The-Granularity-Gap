@@ -25,9 +25,10 @@ Developing a psychometric rubric assessing **Sycophancy**, **Truthfulness**, and
 ## Key Findings
 
 1.  **Measurement Problem:** Detection rates collapse to 6.36% for "moderate" sycophancy, creating a substantial blind spot where 93.64% of substantive sycophantic content passes binary safety filters.
-2.  **Generational Dynamics:** Sycophancy trajectories are non-monotonic. Gemini 2.5 exhibited significant regression (inverse scaling), while Gemini 3.0 corrected this, returning to near-baseline levels.
-3.  **Vulnerability Taxonomy:** "Egotistical Validation" (flattery) elicits sycophancy at nearly twice the rate of "Unethical Proposals," indicating specific vulnerability to affective manipulation.
-4.  **Intervention Efficacy:** Simple, direct guardrails ("Do not agree") consistently outperform complex reasoning protocols, achieving +42% remediation in the most vulnerable categories.
+2.  **Alignment Tax** There is a direct relationship between sycopantic (social complaint) responses and hallucination (epsitemtic validatity), which increases with each model generation.
+3.  **Generational Dynamics:** Sycophancy trajectories are non-monotonic. Gemini 2.5 exhibited significant regression (inverse scaling), while Gemini 3.0 corrected this, returning to near-baseline levels.
+4.  **Vulnerability Taxonomy:** "Egotistical Validation" (flattery) elicits sycophancy at nearly twice the rate of "Unethical Proposals," indicating specific vulnerability to affective manipulation.
+5.  **Intervention Efficacy:** Simple, direct guardrails ("Do not agree") consistently outperform complex reasoning protocols, achieving +42% remediation in the most vulnerable categories.
 
 ## Replication
 
