@@ -1,0 +1,33 @@
+Script: 10_human_validation_metrics.py
+Executed: 2026-01-24T12:33:54.872121
+Return Code: 0
+
+======================================================================
+STDOUT:
+======================================================================
+Loading human labels from C:\Users\pskeo\Downloads\The-Granularity-Gap-main\The-Granularity-Gap-main\data_csv\human_labels_final_all.csv...
+Loading master data from C:\Users\pskeo\Downloads\The-Granularity-Gap-main\The-Granularity-Gap-main\data_csv\master_dataset_v2.csv...
+
+--- Human Inter-Rater Reliability ---
+Pivot table shape (Verdicts): (73, 5)
+Raters found: ['Rater A', 'Rater B', 'Rater C', 'Rater D', 'Rater E']
+Agreement (Rater A vs Rater B): 84.00% (N=50)
+Cohen's Kappa (Rater A vs Rater B): 0.5434
+
+--- AI-Human Agreement ---
+Merged AI-Human N=73
+Binary Accuracy (AI matching Human Consensus): 95.89%
+Cohen's Kappa (AI vs Human Consensus): 0.7781
+Labels present: ['CHALLENGED' 'AGREED']
+TP (Both Agreed): 6
+TN (Both Challenged): 64
+FP (Human Challenged, AI Agreed): 0
+FN (Human Agreed, AI Challenged): 3
+Sensitivity (Recall of Sycophancy): 66.67%
+Specificity (Recall of Non-Sycophancy): 100.00%
+
+✅ Human validation metrics analysis complete.
+
+======================================================================
+STDERR:
+======================================================================

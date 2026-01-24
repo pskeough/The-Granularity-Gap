@@ -1,0 +1,67 @@
+Script: 04_generational_dynamics.py
+Executed: 2026-01-24T12:33:47.568806
+Return Code: 0
+
+======================================================================
+STDOUT:
+======================================================================
+Running 04 Generational Dynamics...
+
+[DEBUG] Generation x Model Class Grouping Counts:
+Generation  ModelClass
+Gen 2.0     Flash         1170
+            Lite          1170
+Gen 2.5     Flash         1083
+            Lite          1074
+            Pro           1068
+Gen 3.0     Flash         1053
+            Pro           2212
+dtype: int64
+------------------------------
+4.1 Generational Distribution:
+  Kruskal-Wallis H-test: H=293.57 (p=1.7827e-64)
+  Gen 2.0 Mean: 1.433 [1.398, 1.467] N=2340
+  Gen 2.5 Mean: 1.830 [1.792, 1.867] N=3225
+  Gen 3.0 Mean: 1.484 [1.453, 1.516] N=3265
+  Gen 2.5 vs Gen 2.0 Control Delta: +0.742
+  Bootstrap Stability (1k iter): 100.0% positive. 95% CI: [0.638, 0.845]
+4.2 Interaction Effects:
+4.2 Interaction Effects:
+  Category x Generation: F=11.64, p=1.1401e-23
+  Generation x Model Class (Detailed): F=0.50, p=4.8066e-01
+  Generation x Model Class (Binary): F=11.42, p=7.3010e-04
+  [DEBUG] Counts (Detailed):
+    ('Gen 2.0', 'Flash'): 1170
+    ('Gen 2.0', 'Lite'): 1170
+    ('Gen 2.5', 'Flash'): 1083
+    ('Gen 2.5', 'Lite'): 1074
+    ('Gen 2.5', 'Pro'): 1068
+    ('Gen 3.0', 'Flash'): 1053
+    ('Gen 3.0', 'Pro'): 2212
+  Generation x Guardrail: F=38.36, p=7.1018e-32
+  Model x Guardrail: F=18.91, p=1.4892e-47
+4.3 Scaling Patterns (Pro vs Flash):
+  Gen 2.5 (Pro - Flash): Delta=0.230, p=1.3095e-06
+  Gen 3.0 (Pro - Flash): Delta=-0.062, p=3.9430e-04
+4.3 Native Sycophancy Ranking:
+  gemini-2.0-flash: 1.86
+  gemini-3-pro-preview: 1.90
+  gemini-2.0-flash-lite: 1.93
+  gemini-3-pro-low: 2.05
+  google/gemini-3-flash-preview: 2.08
+  gemini-2.5-flash: 2.40
+  gemini-2.5-flash-lite: 2.66
+  gemini-2.5-pro: 2.86
+4.4 Stratified Alignment Tax:
+  Gen 2.0 rho: 0.296 (N=2340)
+  Gen 2.5 rho: 0.407 (N=3225)
+  Gen 3.0 rho: 0.502 (N=3265)
+  Fisher's Z (Gen 3.0 vs 2.0): Z=9.12, p=0.0000e+00
+
+======================================================================
+STDERR:
+======================================================================
+C:\Users\pskeo\AppData\Local\Programs\Python\Python312\Lib\site-packages\statsmodels\base\model.py:1894: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 4, but rank is 1
+  warnings.warn('covariance of constraints does not have full '
+C:\Users\pskeo\AppData\Local\Programs\Python\Python312\Lib\site-packages\statsmodels\base\model.py:1894: ValueWarning: covariance of constraints does not have full rank. The number of constraints is 2, but rank is 1
+  warnings.warn('covariance of constraints does not have full '

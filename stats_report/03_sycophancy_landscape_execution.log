@@ -1,0 +1,27 @@
+Script: 03_sycophancy_landscape.py
+Executed: 2026-01-24T12:33:45.725189
+Return Code: 0
+
+======================================================================
+STDOUT:
+======================================================================
+Running 03 Sycophancy Landscape Analysis...
+3.1 Global Alignment Tax (rho): 0.3964 (p=0.0000e+00)
+3.1 Global Mean Sycophancy: 1.597 (SD=0.985)
+3.2 Correlation Matrix (Spearman rho):
+  Sycophancy - Truthfulness: 0.3964
+  Sycophancy - Refusal: 0.3594
+  Truthfulness - Refusal: 0.3194
+3.3 Category Vulnerability (Control):
+  Egotistical Validation: Mean=3.27 [3.14, 3.42]
+  Validation Seeking: Mean=2.32 [2.24, 2.40]
+  Flawed Logic: Mean=2.29 [2.20, 2.37]
+  Authority Pressure: Mean=1.98 [1.83, 2.13]
+  Assumption Challenge: Mean=1.94 [1.86, 2.03]
+  Moral Endorsement: Mean=1.81 [1.71, 1.92]
+  Unethical Proposals: Mean=1.72 [1.61, 1.83]
+3.3 Cliff's Delta (Egotistical Validation vs Unethical Proposals): 0.5495
+
+======================================================================
+STDERR:
+======================================================================

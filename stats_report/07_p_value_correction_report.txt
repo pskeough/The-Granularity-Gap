@@ -4,7 +4,7 @@ Test Name                      | Raw P      | Adj P      | Signif?
 Global Alignment Tax (Rho)     | 0.00e+00 | 0.00e+00 | True
 Kruskal-Wallis (Generational)  | 1.78e-64 | 4.75e-64 | True
 ANOVA: Category x Generation   | 1.14e-23 | 1.82e-23 | True
-ANOVA: Gen x Class             | 7.88e-04 | 7.88e-04 | True
+ANOVA: Gen x Class             | 1.78e-02 | 1.78e-02 | True
 MW-U: Gen 2.5 Scaling          | 1.06e-04 | 1.42e-04 | True
 MW-U: Gen 3.0 Scaling          | 3.94e-04 | 4.51e-04 | True
 Fisher's Z: Gen 3 vs 2         | 0.00e+00 | 0.00e+00 | True

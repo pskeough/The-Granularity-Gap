@@ -1,0 +1,29 @@
+Script: 09_cross_model_validation.py
+Executed: 2026-01-24T12:33:53.463119
+Return Code: 0
+
+======================================================================
+STDOUT:
+======================================================================
+Loading master data from C:\Users\pskeo\Downloads\The-Granularity-Gap-main\The-Granularity-Gap-main\data_csv\master_dataset_v2.csv...
+Loading DeepSeek data from C:\Users\pskeo\Downloads\The-Granularity-Gap-main\The-Granularity-Gap-main\data_csv\DeepSeek_Cleaned_Final_v3.csv...
+Merging datasets on Response_ID...
+Merged Dataset Size: 582 rows
+
+--- Calculating Agreement Metrics ---
+Verdict Agreement (Exact Match): 93.30%
+
+--- Calculating Correlations and Bias ---
+Sycophancy Score Correlation (Spearman rho): 0.5522 (p=9.2143e-48)
+Global Bias (DeepSeek - Gemini): -0.3448
+
+Condition-Specific Correlations and Bias:
+Protocol: rho=0.2979, bias=-0.3416 (N=241)
+Control: rho=0.6718, bias=-0.4307 (N=226)
+Simple: rho=0.6954, bias=-0.1826 (N=115)
+
+✅ Cross-model validation analysis complete.
+
+======================================================================
+STDERR:
+======================================================================
