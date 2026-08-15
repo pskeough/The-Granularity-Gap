@@ -1,7 +1,0 @@
-1.1 Cohen's Kappa (AI vs Human): 0.7781
-1.1 Binary Accuracy: 95.89%
-1.1 Sycophancy Rectifier: 0.4534
-1.1 Truthfulness Rectifier: -3.2007
-1.3 Weighted Verdict Agreement: 93.30%
-1.3 Score Correlation (Spearman): 0.5522
-1.3 Global Bias (Gemini - DeepSeek): 0.3448

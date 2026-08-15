@@ -1,0 +1,94 @@
+status,claim,paper,derived,note
+MATCH,bucket N Clean (=1.0),6039,6039,
+MATCH,bucket % Clean (=1.0),68.39,68.39,
+MATCH,"bucket N Borderline (1,2)",390,390,
+MATCH,"bucket % Borderline (1,2)",4.42,4.42,
+MATCH,"bucket N Mild [2,3)",395,395,
+MATCH,"bucket % Mild [2,3)",4.47,4.47,
+MATCH,"bucket N Moderate [3,4)",1760,1760,
+MATCH,"bucket % Moderate [3,4)",19.93,19.93,
+MATCH,bucket N Severe >=4,246,246,
+MATCH,bucket % Severe >=4,2.79,2.79,
+MATCH,R^2 Likert ~ verdict(flagged),0.29,0.2913,
+MATCH,R^2 Likert ~ verdict(CHALLENGED),0.29,0.2913,
+MATCH,pct responses Likert>=2.0,27.2,27.19,
+NO-PAPER-VALUE,pct responses Likert>=3.0,,22.72,(arXiv-meta claims 22.7)
+MATCH,detect N L1 Clean (<2),6429,6429,
+MATCH,detect rate L1 Clean (<2),99.7,99.7,[specificity=%CHALLENGED]
+MATCH,"detect N L2 Mild [2,3)",395,395,
+MATCH,"detect rate L2 Mild [2,3)",4.56,4.56,[sensitivity=%flagged]
+MATCH,"detect N L3 Mod [3,4)",1760,1760,
+MATCH,"detect rate L3 Mod [3,4)",6.36,6.36,[sensitivity=%flagged]
+MATCH,detect N L4-5 Sev >=4,246,246,
+MATCH,detect rate L4-5 Sev >=4,95.93,95.93,[sensitivity=%flagged]
+MATCH,pct mild-moderate passing filters (abstract 94%),94.0,93.97,
+MATCH,Hedged Refusals N (S>=3 & CHALLENGED),1650,1658,
+MATCH,Hedged Refusals pct,18.7,18.78,
+MATCH,mean sycophancy,1.6,1.5967,
+MATCH,SD sycophancy,0.99,0.9854,
+MATCH,rho Syc~Truth,0.4,0.3964,p=0
+MATCH,rho Syc~Refusal,0.36,0.3594,p=1.8e-267
+MATCH,rho Truth~Refusal,0.32,0.3194,p=1.53e-208
+MATCH,Control N,2949,2949,
+MATCH,Control mean [Egotistical Validation],3.27,3.2653,
+MATCH,Control mean [Validation Seeking],2.32,2.3183,
+MATCH,Control mean [Flawed Logic],2.29,2.2862,
+MATCH,Control mean [Authority Pressure],1.98,1.975,
+MATCH,Control mean [Assumption Challenge],1.94,1.9438,
+MATCH,Control mean [Moral Endorsement],1.81,1.8103,
+MATCH,Control mean [Unethical Proposals],1.72,1.7162,
+MATCH,Cliff's delta EV vs UP (Control),0.55,0.5495,
+MATCH,EV Control mean [gemini-2.5-pro],4.15,4.1538,n=52
+MATCH,EV Control mean [gemini-2.5-flash-lite],3.89,3.8846,n=52
+MATCH,EV Control mean [gemini-2.5-flash],3.66,3.6607,n=56
+MATCH,EV Control mean [gemini-3-pro-low],3.29,3.2867,n=50
+MATCH,EV Control mean [gemini-3-pro-preview],3.19,3.1867,n=50
+MATCH,EV Control mean [gemini-2.0-flash],2.77,2.7733,n=50
+MATCH,EV Control mean [google/gemini-3-flash-preview],2.64,2.6429,n=49
+MATCH,EV Control mean [gemini-2.0-flash-lite],2.41,2.4133,n=50
+MATCH,Gen 2.0 N,2340,2340,
+MATCH,Gen 2.0 mean (all cond),1.43,1.4326,
+MATCH,Gen 2.5 N,3225,3225,
+MATCH,Gen 2.5 mean (all cond),1.83,1.8296,
+MATCH,Gen 3.0 N,3265,3265,
+MATCH,Gen 3.0 mean (all cond),1.48,1.4842,
+MATCH,"Kruskal-Wallis H (3 gens, all cond)",293.57,293.57,p=1.78e-64
+MATCH,Cliff's delta Gen2.5 vs Gen2.0,0.19,0.1924,
+MATCH,Gen 2.0 Control mean,1.9,1.897,
+MATCH,Gen 2.5 Control mean,2.64,2.6389,
+MATCH,Gen 3.0 Control mean,2.01,2.0127,
+MATCH,Gen2.5 - Gen2.0 Control delta,0.74,0.7419,
+MATCH,Fig2 caption: +39% Control increase,39.0,39.11,
+MATCH,Gen 2.5 Pro mean,1.94,1.941,
+MATCH,Gen 2.5 Flash mean,1.71,1.7113,
+MATCH,Gen 2.5 Pro-Flash MWU p<0.001,p<0.001,p<0.001,
+MISMATCH,Gen 3.0 Pro mean,1.46,1.4222,
+MATCH,Gen 3.0 Flash mean,1.53,1.526,
+MATCH,Gen 3.0 Pro-Flash MWU p<0.001,p<0.001,p<0.001,
+MATCH,Gen3 Pro Preview mean (abstract 1.42),1.42,1.4222,
+MATCH,Gen2.0 Flash mean (abstract 1.43),1.43,1.4296,
+MATCH,Alignment Tax rho Gen 2.0,0.3,0.2962,n=2340
+MATCH,Alignment Tax rho Gen 2.5,0.41,0.4068,n=3225
+MATCH,Alignment Tax rho Gen 3.0,0.5,0.5025,n=3265
+MATCH,Fisher Z (Gen3.0 vs Gen2.0),9.12,9.12,
+MATCH,Simple mean sycophancy,1.16,1.1561,
+MATCH,Simple SEM,0.009,0.0093,
+MATCH,Simple Challenge Rate,99.9,99.9,
+MATCH,Protocol mean sycophancy,1.42,1.4205,
+MATCH,Protocol SEM,0.014,0.0139,
+MATCH,Protocol Challenge Rate,99.39,99.39,
+MATCH,Control mean sycophancy,2.21,2.2114,
+MATCH,Control SEM,0.022,0.0224,
+MATCH,Control Challenge Rate,87.66,87.66,
+MISMATCH,CR Control [Egotistical Validation|Gen 2.0],90.0,72.0,
+MISMATCH,CR Control [Egotistical Validation|Gen 2.5],79.87,43.12,
+MISMATCH,CR Control [Egotistical Validation|Gen 3.0],86.64,63.09,
+MISMATCH,CR Control [Unethical Proposals|Gen 2.0],95.67,88.0,
+MISMATCH,CR Control [Unethical Proposals|Gen 2.5],93.07,79.87,
+MISMATCH,CR Control [Unethical Proposals|Gen 3.0],95.78,88.0,
+MISMATCH,CR Control [Authority Pressure|Gen 2.0],97.62,92.86,
+MISMATCH,CR Control [Authority Pressure|Gen 2.5],96.19,88.57,
+MISMATCH,CR Control [Authority Pressure|Gen 3.0],92.7,79.05,
+MISMATCH,CR Control [Assumption Challenge|Gen 2.0],97.5,93.33,
+MISMATCH,CR Control [Assumption Challenge|Gen 2.5],98.42,95.31,
+MISMATCH,CR Control [Assumption Challenge|Gen 3.0],97.41,92.78,
