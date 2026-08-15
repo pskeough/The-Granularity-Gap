@@ -75,7 +75,7 @@ Two terms recur throughout this paper. The \textit{Granularity Gap} refers to be
 \subsection{Framework Implementation}
 We developed a modular Python-based evaluation framework supporting reproducible analysis across model generations. The pipeline handles response generation, automated multi-axis grading, and statistical analysis with configurable guardrail conditions.
 
-\textit{Availability:} Code, evaluation rubrics, and anonymized response data are available at \url{https://github.com/pskeough/The-Granularity-Gap.git} to enable replication across other model families.
+\textit{Availability:} Code, evaluation rubrics and the scored response corpus are at \url{https://github.com/pskeough/The-Granularity-Gap}, with the full contents listed under Data and Code Availability.
 
 \subsection{Dataset Specification}
 The study uses a dataset of 350 adversarial prompts designed to elicit social compliance across seven psychological categories:
@@ -291,7 +291,7 @@ Unethical Proposals & 0.2\% \\
 \label{tab:nothing-to-refuse}
 \end{table}
 
-The two categories that genuinely solicit a harmful act sit at essentially zero. The five that do not run from a fifth to a half. On 626 votes, 5.8\% of the total, a judge scores sycophancy at 3 or above while recording in the same breath that nothing harmful was asked. A refusal-thresholded verdict cannot reach those responses at any threshold, because on those prompts there is nothing for it to measure.
+The two categories that genuinely solicit a harmful act sit at essentially zero. The five that do not run from a fifth to a half. On 626 votes, 5.8\% of the total, a judge scores sycophancy at 3 or above while recording in the same breath that nothing harmful was asked. A refusal-thresholded verdict cannot reach those responses at any threshold, because on those prompts there is nothing for it to measure. Figure~\ref{fig:granularity-gap} shows the severity density these votes sit in.
 
 \begin{figure}[H]
 \centering
@@ -413,7 +413,7 @@ The moderate positive correlations across all axis pairs indicate that failures 
 
 \subsection{Ranking Categories by Vulnerability} \label{sec:vulnerability}
 
-We analyzed mean sycophancy scores across the seven probe categories in the Control condition (N=2,949)\footnote{Actual N exceeds theoretical design (350 $\times$ 8 = 2,800) due to operational retries and stratified over-sampling of the Control condition.}, isolating models' natural vulnerability before guardrail intervention:
+We analyzed mean sycophancy scores across the seven probe categories in the Control condition (N=2,949)\footnote{Actual N exceeds theoretical design (350 $\times$ 8 = 2,800) due to operational retries and stratified over-sampling of the Control condition.}, isolating models' natural vulnerability before guardrail intervention. Figure~\ref{fig:heatmap} gives the same scores per model and category:
 
 \begin{figure*}[t]
 \centering
@@ -502,7 +502,7 @@ This divergence suggests models possess a strong internal reference frame for so
 \FloatBarrier
 \section{Results III: Generational and Scale Dynamics}
 
-Sycophancy does not decrease monotonically across model generations.
+Sycophancy does not decrease monotonically across model generations. Figure~\ref{fig:radar} plots the seven-category profile that each generation carries into the comparison.
 
 \begin{figure*}[!ht]
 \centering
@@ -554,7 +554,7 @@ Gen 3.0 & 2.01 & [1.94, 2.08] \\
 \label{tab:gen-control}
 \end{table}
 
-Isolating native model tendencies (Control condition) reveals a clearer pattern: Gen 2.5 shows a +0.74 point increase over Gen 2.0 (95\% CI [0.64, 0.85]), nearly double the aggregate effect. Gen 3.0 recovers to near-baseline levels. Bootstrap resampling (1,000 iterations) confirmed the regression in 100\% of samples.
+Isolating native model tendencies (Control condition) reveals a clearer pattern: Gen 2.5 shows a +0.74 point increase over Gen 2.0 (95\% CI [0.64, 0.85]), nearly double the aggregate effect. Gen 3.0 recovers to near-baseline levels. Bootstrap resampling (1,000 iterations) confirmed the regression in 100\% of samples. Figure~\ref{fig:trajectory} plots the trajectory by guardrail condition.
 
 \begin{figure}[t]
 \centering
@@ -713,7 +713,7 @@ Despite similar challenge rates, Protocol guardrails exhibit higher residual syc
 
 This is the Paradox of Complexity: Protocol guardrails successfully enforce the act of refusal but fail to mitigate the posture of agreement. Inspection of Protocol-condition responses suggests a mechanism: lengthy Chain-of-Thought instructions compete with the model's native helpfulness objective, producing hedged refusals that refuse technically but compensate with apologetic or validating language.
 
-The Simple guardrail functions as a hard constraint, severing the helpful feedback loop and forcing clean refusals. Protocol guardrails provide surface area for the model to rationalize validating the user's premise while technically refusing, consistent with Turpin et al.'s \cite{ref16} finding that chain-of-thought explanations can be unfaithful to the model's actual reasoning process. Seven of eight models tested follow this pattern.
+The Simple guardrail functions as a hard constraint, severing the helpful feedback loop and forcing clean refusals. Protocol guardrails provide surface area for the model to rationalize validating the user's premise while technically refusing, consistent with Turpin et al.'s \cite{ref16} finding that chain-of-thought explanations can be unfaithful to the model's actual reasoning process. Seven of eight models tested follow this pattern. Figure~\ref{fig:intervention} shows the challenge-rate and severity movement side by side.
 
 \begin{figure}[t!]
 \centering
@@ -746,7 +746,7 @@ Gemini 3.0 Flash & 3.0 & $-$0.27 & Protocol \\
 
 \textbf{Model $\times$ Guardrail Interaction:} F(14, 8806) = 18.91, p $<$ 0.001
 
-Gemini 3.0 Flash is the only model where Protocol outperforms Simple. One hypothesis: distilled models, with their compressed parameter space, benefit from the explicit reasoning scaffolding that Protocol provides, scaffolding that larger models can bypass or subvert.
+Gemini 3.0 Flash is the only model where Protocol outperforms Simple. One hypothesis: distilled models, with their compressed parameter space, benefit from the explicit reasoning scaffolding that Protocol provides, scaffolding that larger models can bypass or subvert. Figure~\ref{fig:flash-anomaly} shows the interaction across all eight variants.
 
 \begin{figure}[ht!]
 \centering
@@ -827,7 +827,7 @@ The exclusion was the right call and the failure pattern shows why. The errors a
 \item DeepSeek V3 Delta: +0.34 (Gemini rates 0.34 points higher than DeepSeek)
 \end{itemize}
 
-Two methodologically distinct sources (a human panel and an external model family) agree on the sign and approximate magnitude of the offset: the Gemini judge scores responses as more sycophantic than external evaluators. Taken at the aggregate level this supports reading reported sycophancy rates as upper-bound rather than optimistic estimates. We attach two caveats. The human comparison rests on a non-independent panel (Section~\ref{sec:evalinstruments}) and 73 responses, and the DeepSeek offset is measured on 582 of 8,830 responses. The upper-bound reading is supported evenly across the three generations, since the offset holds at +0.56, +0.50 and +0.51 within the batch that covers all of them, but it rests on a subsample throughout.
+Two methodologically distinct sources (a human panel and an external model family) agree on the sign and approximate magnitude of the offset: the Gemini judge scores responses as more sycophantic than external evaluators. Taken at the aggregate level this supports reading reported sycophancy rates as upper-bound rather than optimistic estimates. We attach two caveats. The human comparison rests on a non-independent panel (Section~\ref{sec:evalinstruments}) and 73 responses, and the DeepSeek offset is measured on 582 of 8,830 responses. The upper-bound reading is supported evenly across the three generations, since the offset holds at +0.56, +0.50 and +0.51 within the batch that covers all of them, but it rests on a subsample throughout. Figure~\ref{fig:cross-validation} plots the paired scores.
 
 \begin{figure}[!ht]
 \centering
@@ -1042,13 +1042,15 @@ The intervention results run the other way. Guardrails were a third of our facto
 None of that removes the measurement problem, and we would rather end on it than on the fix. An evaluation that reports only whether a model refused will report these interventions as near-identical successes, because 99.90\% and 99.39\% are hard to tell apart, while the severity scores underneath them differ by a quarter of a point. We release the rubric, the prompt set, and the per-vote judge reasoning so that the next audit can check the second number as well as the first.
 
 
-\section*{Corrections to the v1 Preprint}
+\section*{Data and Code Availability}
 
-This version corrects arXiv:2606.05183v1. Five claims are withdrawn, eight are restated, and several
-properties of the study are disclosed that v1 did not report. The dataset, the factorial design,
-N=8,830, the 350-prompt set, the eight model variants, the severity distribution, the category
-hierarchy, the generational trajectory and the guardrail results are unchanged. An itemised record
-of every change and the ground for it is released with the data as \texttt{CHANGELOG\_v2.md}.
+The corpus of 8,830 scored responses, the 350-prompt set, the judge rubric, the 10,792 per-vote
+judge scores with their written reasoning, the pseudonymised human labels with their codebook, and
+the generation, analysis and verification code are at
+\url{https://github.com/pskeough/The-Granularity-Gap}. Four gates run from a fresh clone with no
+credentials: 52 numeric claims in this paper are re-derived there from the released corpus and
+matched against the values printed here. \texttt{CHANGELOG\_v2.md} in that repository is the
+itemised record of what changed from arXiv:2606.05183v1 and the ground for each change.
 
 \section*{Generative AI Disclosure}
 
