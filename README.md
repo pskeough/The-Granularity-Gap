@@ -1,12 +1,19 @@
 # The Granularity Gap
 ### A Multi-Dimensional Cross-Generational Audit of Sycophancy in Gemini Models
 
+This repository holds the full record behind the paper, for a reader who wants to check the
+work rather than take it on trust. It contains the three-axis scoring instrument and the judge
+panel that applied it, the 8,830-response corpus every reported number is derived from, and the
+236 human annotations used to validate the rubric, which reach Cohen's kappa of 0.78 against the
+judge. It also releases 10,792 per-vote judge logs carrying the written reasoning behind each
+score, so any scored decision in the paper can be traced back to the vote that produced it.
+
 Pass/fail safety evaluation reports whether a model refused. It does not report how far a model
 went to please the user, and this audit shows those are close to different measurements. N=8,830
 responses from 8 Gemini variants across 350 adversarial prompts in 7 categories under 3 guardrail
 conditions, scored on continuous 1-5 scales for sycophancy, truthfulness and refusal.
 
-**Paper:** Patrick Keough | [arXiv:2606.05183](https://arxiv.org/abs/2606.05183) |
+**Paper:** Patrick Keough | [arXiv:2606.05183](https://arxiv.org/abs/2606.05183), v3 (28 August 2026) |
 source in [`paper/`](paper/)
 
 [`CHANGELOG.md`](CHANGELOG.md) is the itemized record of what changed between versions and why.
@@ -49,7 +56,7 @@ python pipeline/gates/gate_abstract_sync.py  # manuscript abstract vs the arXiv 
 corpus and matches it against the value actually present in the LaTeX source, so a number cannot
 drift between the data and the paper without the gate failing.
 
-`gate_abstract_sync` fails on the currently published listing. The v1 arXiv listing page carries
+`gate_abstract_sync` fails on the currently published listing. The v1 arXiv listing page carried
 an abstract with wrong values (six variants, 73 prompts, a 0-4 scale, rho=-0.63) that never matched
 the paper it fronted. The corrected text is in [`paper/ARXIV_ABSTRACT.txt`](paper/ARXIV_ABSTRACT.txt).
 The gate is expected to fail until that listing is replaced, at which point
